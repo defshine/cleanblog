@@ -1,0 +1,7 @@
+flask-script
+flask-mongoengine
+flask-wtf
+flask-login
+flask-babel
+gunicorn
+greenlet
