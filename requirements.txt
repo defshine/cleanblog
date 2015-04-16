@@ -1,7 +1,9 @@
 flask-script
+pymongo==2.8
 flask-mongoengine
 flask-wtf
 flask-login
 flask-babel
+flask-admin
 gunicorn
 greenlet
