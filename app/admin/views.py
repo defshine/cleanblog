@@ -7,12 +7,12 @@ from flask import redirect, url_for, request
 from forms import LoginForm
 
 
-class AdminIndexView(AdminIndexView):
+class MyIndexView(AdminIndexView):
     @expose('/')
     def index(self):
         if not current_user.is_authenticated():
             return redirect(url_for('.login'))
-        return super(AdminIndexView, self).index()
+        return super(MyIndexView, self).index()
 
     @expose('/login', methods=('GET', 'POST'))
     def login(self):
@@ -24,7 +24,7 @@ class AdminIndexView(AdminIndexView):
 
         self._template_args['form'] = form
 
-        return super(AdminIndexView, self).index()
+        return super(MyIndexView, self).index()
 
     @expose('/logout/')
     def logout_view(self):

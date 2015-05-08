@@ -17,7 +17,16 @@ This is the source code of Flask Tutorial Pro, the eBook will come soon~
 3. flask-babel
 4. flask-script
 5. flask-wtf
-6. flask-mongoengine
+6. flask-mongoengine  
+
+## Changelog  
+1. update ckeditor to 4.4.7_standard  
+2. add highlight.js  
+
+## Todo  
+1. Post click rank  
+2. comments  
+3. Email notification   
 
 ## Deploy
 See this wiki:  

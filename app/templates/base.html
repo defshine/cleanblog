@@ -18,6 +18,9 @@
     <!--<link href="css/clean-blog.min.css" rel="stylesheet">-->
     <link href="../static/css/clean-blog.css" rel="stylesheet">
 
+    <!-- highlight for code -->
+    <link href="../static/css/solarized_dark.css" rel="stylesheet">
+
     <!-- Custom Fonts -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -92,6 +95,15 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../static/js/clean-blog.min.js"></script>
+
+    <script src="../static/js/lib/highlight/highlight.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('pre').each(function (i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
 
 </body>
 
