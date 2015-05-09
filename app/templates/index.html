@@ -7,12 +7,13 @@
                     <h2 class="post-title">{{ post.title }}</h2>
                 </a>
                 {% if post.tags %}
-                    <span>Tags:&nbsp;</span>
-                    {% for tag in post.tags %}
-                        <span class="label label-info">{{ tag }}</span>&nbsp;
-                    {% endfor %}
+                    <ul class="list-unstyled list-inline">
+                        {% for tag in post.tags %}
+                            <li><strong><span class="label label-info">{{ tag }}</span></strong></li>
+                        {% endfor %}
+                    </ul>
                 {% endif %}
-                <p class="post-meta">Posted by <a href="#">{{ post.author.name }}</a> on {{ post.create_time | my_format_datetime}}</p>
+                <p class="post-meta">Posted by <a href="{{ url_for('blog.about') }}">{{ post.author.name }}</a> on {{ post.create_time | my_format_datetime}}</p>
             </div>
             <hr>
         {% endfor %}

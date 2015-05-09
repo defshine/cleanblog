@@ -6,10 +6,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Clean Blog</title>
+    {% if post %}
+        <title>{{ post.title }}</title>
+        <meta name="description" content="{{ post.title }}">
+        <meta name="keywords" content="{%  for tag in post.tags %} {{ tag  }}{% endfor %}">
+        <meta name="author" content="{{ post.author.name }}">
+    {% else %}
+        <title>Clean Blog</title>
+        <meta name="description" content="python flask react blog">
+        <meta name="keywords" content="python flask react blog">
+        <meta name="author" content="shin">
+    {% endif %}
 
     <!-- Bootstrap Core CSS -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -46,12 +53,9 @@
                         <a href="{{ url_for('blog.about') }}">About</a>
                     </li>
                     <li>
-                        <a href="https://github.com/defshine">Github</a>
+                        <a href="https://github.com/defshine" rel="nofollow">Github</a>
                     </li>
-{#                    <li>#}
-{#                        <a href="{{ url_for('blog.contact') }}">Contact</a>#}
-{#                    </li>#}
-                     {% if user %}
+                    {% if user %}
                         {% if current_user.is_authenticated() %}
                             <li><a href="/admin" class="btn-info">Admin</a></li>
                             <li><a href="{{ url_for('blog.logout') }}" class="btn-info">Logout</a></li>
