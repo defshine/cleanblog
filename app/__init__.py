@@ -3,7 +3,7 @@ from models import db
 from views import bp
 from app.admin import create_admin
 from flask.ext.login import LoginManager
-from app.filters import babel, my_format_datetime
+from app.filters import babel, my_format_datetime, format_meta_keywords
 
 
 def create_app():
@@ -45,3 +45,4 @@ def register_babel(app):
 
 def register_jinjia_filters(app):
     app.jinja_env.filters['my_format_datetime'] = my_format_datetime
+    app.jinja_env.filters['format_meta_keywords'] = format_meta_keywords

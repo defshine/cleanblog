@@ -9,7 +9,7 @@
     {% if post %}
         <title>{{ post.title }}</title>
         <meta name="description" content="{{ post.title }}">
-        <meta name="keywords" content="{%  for tag in post.tags %} {{ tag  }}{% endfor %}">
+        <meta name="keywords" content="{{ post.tags | format_meta_keywords }}">
         <meta name="author" content="{{ post.author.name }}">
     {% else %}
         <title>Clean Blog</title>
