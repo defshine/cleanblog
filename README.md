@@ -2,7 +2,7 @@ CleanBlog
 =========
 
 A clean and simple  blog system based on Flask and MongoDB  
-You can access [CleanBlog](http://flaskblog.me/)   
+You can access [CleanBlog](http://128.199.85.119/)   
 This is the source code of Flask Tutorial Pro, the eBook will come soon~  
 
 ## Main:
