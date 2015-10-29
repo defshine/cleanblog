@@ -1,9 +1,9 @@
 CleanBlog
 =========
 
-A clean and simple  blog system based on Flask and MongoDB  
+A clean and simple blog system based on Flask and MongoDB  
 You can access [CleanBlog](http://128.199.85.119/)   
-This is the source code of Flask Tutorial Pro, the eBook will come soon~  
+This is the source code of [Flask Tutorial Pro](https://selfstore.io/products/359),you can buy this book on [SelfStore](https://selfstore.io/products/359),it includes pdf,mobi,epub  
 
 ## Main:
 1. System: Ubuntu 14.04 64
