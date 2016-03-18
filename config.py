@@ -1,5 +1,5 @@
 SECRET_KEY = "never tell you"
-MONGODB_SETTINGS = {'DB': 'cleanblog_db'}
+SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/blog.db'
 # for chinese
 # BABEL_DEFAULT_LOCALE = "zh_Hans_CN"
 # for english

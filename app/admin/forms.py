@@ -11,7 +11,7 @@ class LoginForm(form.Form):
     password = PasswordField('password', validators=[DataRequired()])
 
     def get_user(self):
-        user = User.objects(name=self.name.data).first()
+        user = User.query.filter_by(name=self.name.data).first()
         return user
 
     def validate_name(self, field):

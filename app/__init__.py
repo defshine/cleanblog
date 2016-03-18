@@ -36,7 +36,7 @@ def init_login(app):
     @login_manager.user_loader
     def load_user(user_id):
         from app.models import User
-        return User.objects(id=user_id).first()
+        return User.query.filter_by(id=user_id).first()
 
 
 def register_babel(app):

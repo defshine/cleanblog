@@ -1,14 +1,14 @@
-from flask.ext.mongoengine import MongoEngine
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from .database import db
 
-db = MongoEngine()
-
-
-class User(db.Document):
-    name = db.StringField(required=True, max_length=64)
-    password = db.StringField(max_length=256)
-    email = db.StringField(max_length=64)
-    description = db.StringField(max_length=1024)
+class User(db.Model):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(64))
+    password = db.Column(db.String(256))
+    email = db.Column(db.String(64))
+    description = db.Column(db.Text)
 
     # Flask-Login integration
     def is_authenticated(self):
@@ -30,14 +30,15 @@ class User(db.Document):
 post_status = ((0, 'draft'), (1, 'published'))
 
 
-class Post(db.Document):
-    title = db.StringField(required=True, max_length=64)
-    content = db.StringField(required=True)
-    author = db.ReferenceField(User)
-    tags = db.ListField(db.StringField(max_length=32))
-    status = db.IntField(required=True, choices=post_status)
-    create_time = db.DateTimeField(default=datetime.now)
-    modify_time = db.DateTimeField(default=datetime.now)
+class Post(db.Model):
+    __tablename__ = 'post'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(64), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    author = db.Column(db.Integer, db.ForeignKey('user.id'), index=True, nullable=True)
+    status = db.Column(db.Integer)
+    create_time= db.Column(db.DateTime, default=datetime.utcnow())
+    modify_time= db.Column(db.DateTime, default=datetime.utcnow(), onupdate=datetime.utcnow())
 
     def __unicode__(self):
         return self.title
@@ -45,3 +46,9 @@ class Post(db.Document):
     meta = {
         'ordering': ['-create_time']
     }
+
+class Tag(db.Model):
+    __tablename__ = 'tag'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    label = db.Column(db.String(64), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'), index=True, nullable=False)

@@ -1,5 +1,6 @@
 # coding:utf-8
-from flask_admin.contrib.mongoengine import ModelView
+
+from flask.ext.admin.contrib.sqla import ModelView
 from wtforms import fields, widgets
 from flask.ext.admin import AdminIndexView, expose, helpers
 from flask.ext.login import current_user, login_user, logout_user
@@ -61,21 +62,10 @@ class UserView(ModelView):
 class PostView(ModelView):
 
     column_display_pk = True
-
     form_overrides = dict(content=CKTextAreaField)
     create_template = 'admin/create_post.html'
     edit_template = 'admin/edit_post.html'
-
     column_list = ('id', 'title', 'content', 'author', 'tags', 'status', 'create_time', 'modify_time')
-    # column_labels = dict(id='ID',
-    #                      title=u'标题',
-    #                      content=u'内容',
-    #                      author=u'作者',
-    #                      tags=u'标签',
-    #                      status=u'状态',
-    #                      create_time=u'创建时间',
-    #                      modify_time=u'修改时间')
-
     column_choices = {
         'status': [
             (0, 'draft'),
