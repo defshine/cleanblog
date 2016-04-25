@@ -22,7 +22,7 @@ def create_admin(name, password):
 @manager.command
 def add_post():
     user = User.objects(name="admin").first()
-    post = Post(title="Hello", content="Hello Wolrd", author=user, tags=['python', 'flask'])
+    post = Post(title="Hello", content="Hello Wolrd", author=user, tags=['python', 'flask'],status=1)
     post.save()
 
 
