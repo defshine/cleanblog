@@ -1,4 +1,4 @@
-from flask.ext.admin import Admin
+from flask_admin import Admin
 from views import UserView, PostView, MyIndexView
 from app.models import User, Post
 

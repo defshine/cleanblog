@@ -56,7 +56,7 @@
                         <a href="https://github.com/defshine" rel="nofollow">Github</a>
                     </li>
                     {% if user %}
-                        {% if current_user.is_authenticated() %}
+                        {% if current_user.is_authenticated %}
                             <li><a href="/admin" class="btn-info">Admin</a></li>
                             <li><a href="{{ url_for('blog.logout') }}" class="btn-info">Logout</a></li>
                         {% endif %}

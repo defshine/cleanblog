@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for
 from models import User, Post
-from flask.ext.login import current_user, logout_user
+from flask_login import current_user, logout_user
 
 bp = Blueprint('blog', __name__)
 

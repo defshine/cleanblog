@@ -1,5 +1,5 @@
-from flask.ext.babel import Babel
-from flask.ext.babel import format_datetime
+from flask_babel import Babel
+from flask_babel import format_datetime
 
 
 babel = Babel()
