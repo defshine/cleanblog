@@ -1,8 +1,8 @@
 # coding:utf-8
 from flask_admin.contrib.mongoengine import ModelView
 from wtforms import fields, widgets
-from flask.ext.admin import AdminIndexView, expose, helpers
-from flask.ext.login import current_user, login_user, logout_user
+from flask_admin import AdminIndexView, expose, helpers
+from flask_login import current_user, login_user, logout_user
 from flask import redirect, url_for, request
 from forms import LoginForm
 
@@ -10,7 +10,7 @@ from forms import LoginForm
 class MyIndexView(AdminIndexView):
     @expose('/')
     def index(self):
-        if not current_user.is_authenticated():
+        if not current_user.is_authenticated:
             return redirect(url_for('.login'))
         return super(MyIndexView, self).index()
 
@@ -55,7 +55,7 @@ class UserView(ModelView):
     form_columns = ('name', 'email', 'description')
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
 
 class PostView(ModelView):
@@ -90,7 +90,7 @@ class PostView(ModelView):
     column_sortable_list = ('create_time', 'modify_time')
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
 
 

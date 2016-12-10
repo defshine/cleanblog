@@ -1,4 +1,4 @@
-from flask.ext.script import Manager, Server
+from flask_script import Manager, Server
 from app import create_app
 from app.models import User, Post
 from werkzeug.security import generate_password_hash

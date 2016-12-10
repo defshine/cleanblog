@@ -2,7 +2,7 @@ from flask import Flask
 from models import db
 from views import bp
 from app.admin import create_admin
-from flask.ext.login import LoginManager
+from flask_login import LoginManager
 from app.filters import babel, my_format_datetime, format_meta_keywords
 
 
